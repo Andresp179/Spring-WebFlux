@@ -11,9 +11,10 @@ public class EjemploMono {
 
 		
 		Mono<String> monin = Mono.fromSupplier(() ->{
-			throw new RuntimeErrorException(null, "Hay un error!!");
+			throw new RuntimeException("Hay un error!!");
 			
 		});
+		monin.subscribe(err -> System.out.println(err));
 		
 		Mono<String> prueba=Mono.just("Andres Arturo Perez");
 		prueba.subscribe(data -> System.out.println("El nombre es: "+data),
